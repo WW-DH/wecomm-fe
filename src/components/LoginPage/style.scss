@@ -1,0 +1,19 @@
+.login-page {
+  padding: 10rem 0;
+  width: 100%;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .login-form {
+    width: 28rem;
+    padding: 2rem;
+    .ant-form-item {
+      margin-bottom: 20px;
+    }
+    .terms-input-container {
+      margin-bottom: 10px;
+    }
+  }
+}
