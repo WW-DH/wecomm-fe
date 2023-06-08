@@ -19,8 +19,7 @@ export const SignUpPage = () => {
 
   // ID validation
   const validateId = (_: object, value: string) => {
-    const length = value ? value.length : 0;
-    if (length < 4 || length > 20) {
+    if (value?.length < 4 || value?.length > 20) {
       return Promise.reject(new Error('아이디는 4자이상 20자 이하여야 합니다.'))
     }
 
@@ -35,8 +34,7 @@ export const SignUpPage = () => {
 
   // 비밀번호 validation
   const validatePassword = (_:object, value: string) => {
-    const length = value ? value.length : 0;
-    if (length < 8 || length > 20) {
+    if (value?.length < 8 || value?.length > 20) {
       return Promise.reject(new Error('비밀번호는 8자 이상 20자 이하여야 합니다.'));
     }
     return Promise.resolve();
@@ -49,16 +47,6 @@ export const SignUpPage = () => {
       return Promise.reject(new Error('비밀번호가 일치하지 않습니다'));
     }
     return Promise.resolve();
-  }
-
-  // submit 버튼 click시 전체 validation 후 처리
-  const handleFinish = async() => {
-    try {
-      await form.validateFields();
-      form.submit();
-    } catch (error) {
-      console.log('error : ', error);
-    }
   }
 
   return (
@@ -173,10 +161,9 @@ export const SignUpPage = () => {
             block
             size="large"
             type="primary"
-            htmlType="button"
-            onClick={handleFinish}
+            htmlType="submit"
           >
-            Submit
+            회원가입
           </Button>
         </Form>
       </div>
